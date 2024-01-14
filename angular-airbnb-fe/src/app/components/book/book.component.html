@@ -1,0 +1,115 @@
+<!-- <hr/>
+<div class="w-[80vw] mx-auto">
+    <p class="text-3xl">Request to book</p>
+    <div>
+        Your Trip
+        <div>
+        <p>Dates</p>
+        <p>28-29 Mar</p>
+        </div>
+        <div>
+            <p>Guests</p>
+            <p>1 guest</p>
+        </div>
+        <div>
+            <p>Pay with</p>
+            <input class="border rounded-lg"/>
+        </div>
+    </div>
+</div> -->
+<div class=" w-[85vw] mx-auto font-sans">
+    <p class="text-3xl m-5">Request to book</p>
+
+    <div class="flex relative gap-5">
+        <div class="w-1/2 space-y-7">
+            <p class="text-2xl">Your trip</p>
+            <div class="my-4">
+                <p class="text-lg font-semibold">Dates</p>
+                <p class="text-sm">28-29 Mar</p>
+            </div>
+
+            <hr />
+            <div class="my-4">
+                <p class="text-lg font-semibold">Guests</p>
+                <p class="text-sm">1 guest</p>
+            </div>
+            <hr />
+            <div class="space-y-4">
+                <p class="text-lg font-semibold">Pay with</p>
+                <input class="border w-full p-4 rounded-xl" />
+                <input class="border w-full p-4 rounded-xl" placeholder="Virtual Payment Address" />
+            </div>
+            <hr />
+            <div class="my-4 space-y-4">
+                <p class="text-2xl">Required for your trip</p>
+                <div>
+                    <p class="font-semibold">Message the host</p>
+                    <p>Share why you're travelling , who's coming with you and what you love about the space</p>
+                </div>
+                <div>
+                    <p class="font-semibold">Phone number</p>
+                    <p>Add and confirm your phone number</p>
+                </div>
+            </div>
+            <hr />
+            <div>
+                <p class="text-xl font-semibold">Cancellation Policy</p>
+                <p><b>Free cancellation before 3 days of booking</b> . After that, the reservation is non-refundable.
+                </p>
+            </div>
+            <div>
+                <p class="text-xl font-semibold">Ground Rules</p>
+                <p>We ask every guest to remember a few simple things about what makes a great guest.</p>
+                <li>Follow the house rules</li>
+                <li>Treat your Host’s home like your own</li>
+            </div>
+            <hr/>
+            <div class="">
+                <p class="text-xs">By selecting the button below, I agree to the Host's House Rules, Ground rules for guests, Airbnb's Rebooking and Refund Policy and that Airbnb can charge my payment method if I’m responsible for damage. I agree to pay the total amount shown if the Host accepts my booking request.</p>
+                <button class="my-12 text-xl text-white bg-rose-600 p-5 rounded-xl" (click)="onAlert()">Request to book</button>
+            </div>
+            
+        </div>
+        <div class="sticky top-10 h-max mx-auto border shadow-xl bg-white/30 rounded-xl p-5 w-max space-y-6 mb-5">
+            <div class="flex items-start gap-4">
+                <img src={{data.image}} class="h-24 object-cover object-center rounded-xl "/>
+                <div>
+                    <p>Room in {{data.name}}</p>
+                    <p>{{data.description}}</p>
+                </div>
+            </div>
+            
+            <p class="text-xl">Price Details</p>
+            <div class="flex justify-between">
+                <p class="underline">₹{{data.price}} x 1 night</p>
+                <p>₹{{data.price}}</p>
+            </div>
+            <div class="flex justify-between">
+                <p class="underline">Taxes</p>
+                <p>₹4000</p>
+            </div>
+            <hr />
+            <div class="flex justify-between">
+                <p class="font-semibold">Total</p>
+                <p>₹48506</p>
+            </div>
+            <button class="underline">Report this listing</button>
+        </div>
+    </div>
+    <hr />
+    <div class="py-4">
+        <p class="text-2xl my-4">Where you will be</p>
+        <p>{{data.city}}</p>
+        <div class=" h-[500px] border">Hi</div>
+    </div>
+    <hr />
+    <div class="flex items-center gap-5 my-5">
+        <img src="https://a0.muscache.com/im/pictures/user/88c78c99-4d21-41e2-9ead-22c89b19b1be.jpg"
+            class="rounded-full w-20" />
+        <div>
+            <p class="text-2xl">Hosted By Manager </p>
+            <p>Joined in 2015 </p>
+        </div>
+    </div>
+
+</div>

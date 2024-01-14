@@ -1,0 +1,115 @@
+<div>
+    <div class="border w-[90vw] m-auto rounded-full p-2 flex justify-between mb-2">
+        <div>
+            <button [matMenuTriggerFor]="beforeMenu">Where</button>
+            <mat-menu #beforeMenu="matMenu" xPosition="after" class="p-2 mt-5">
+                <div>
+                    <h1>Search By Region</h1>
+                    <div class="grid grid-cols-3 grid-row-flow gap-5">
+                        <div>
+                            <img src="https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg" />
+                            <h1>I'm Flexible</h1>
+                        </div>
+                        <div>
+                            <img src="https://a0.muscache.com/im/pictures/7b5cf816-6c16-49f8-99e5-cbc4adfd97e2.jpg" />
+                        </div>
+                        <div>
+                            <img src="https://a0.muscache.com/im/pictures/dbb2b5ef-2efe-4099-81ac-c7b957f384ed.jpg" />
+                        </div>
+                        <div>
+                            <img src="https://a0.muscache.com/im/pictures/d77de9f5-5318-4571-88c7-e97d2355d20a.jpg" />
+                        </div>
+                        <div>
+                            <img src="https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg" />
+                        </div>
+                        <div>
+                            <img src="https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg" />
+                        </div>
+                    </div>
+                </div>
+
+            </mat-menu>
+        </div>
+        <div>
+            <button [matMenuTriggerFor]="beforeMenu2">When</button>
+            <mat-menu #beforeMenu2="matMenu" xPosition="after" class="p-2 mt-5 h-max w-max">
+                
+                    <mat-label>Enter a date range</mat-label>
+                    <mat-date-range-input [formGroup]="range" [rangePicker]="picker" class="w-max">
+                        <input matStartDate formControlName="start" placeholder="Start date" class="w-max">
+                        <input matEndDate formControlName="end" placeholder="End date" class="w-max">
+                    </mat-date-range-input>
+                    <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker class="w-max"></mat-date-range-picker>
+
+                    <!-- @if (range.controls.start.hasError('matStartDateInvalid')) {
+                    <mat-error>Invalid start date</mat-error>
+                    }
+                    @if (range.controls.end.hasError('matEndDateInvalid')) {
+                    <mat-error>Invalid end date</mat-error>
+                    } -->
+                
+            </mat-menu>
+        </div>
+        
+        <div><button [matMenuTriggerFor]="beforeMenu3">Who</button>
+            <mat-menu #beforeMenu3="matMenu" xPosition="after" class="p-2 mt-5">
+                <div>
+                    <h1>Search By Region</h1>
+                    <div class="grid grid-cols-3 grid-row-flow gap-5">
+                        <div>
+                            <img src="https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg" />
+                            <h1>I'm Flexible</h1>
+                        </div>
+                        <div>
+                            <img src="https://a0.muscache.com/im/pictures/7b5cf816-6c16-49f8-99e5-cbc4adfd97e2.jpg" />
+                        </div>
+                        <div>
+                            <img src="https://a0.muscache.com/im/pictures/dbb2b5ef-2efe-4099-81ac-c7b957f384ed.jpg" />
+                        </div>
+                        <div>
+                            <img src="https://a0.muscache.com/im/pictures/d77de9f5-5318-4571-88c7-e97d2355d20a.jpg" />
+                        </div>
+                        <div>
+                            <img src="https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg" />
+                        </div>
+                        <div>
+                            <img src="https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg" />
+                        </div>
+                    </div>
+                </div>
+
+            </mat-menu></div>
+        <div>Search</div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="flex justify-around">
+        <div class="flex gap-4">
+            <button (click)="selectedPortal = templatePortal" (click)="head=1">Beach</button>
+            <button (click)="selectedPortal = domPortal" (click)="head=2">Farm</button>
+        </div>
+        <div>
+            <button>Render nothing</button>
+            <button>Render nothing</button>
+        </div>
+    </div>
+    <div class="example-portal-outlet overflow-y-auto">
+        <ng-template [cdkPortalOutlet]="selectedPortal"></ng-template>
+    </div>
+    <div *ngIf="head==2" #domPortalContent class="h-24 border">Hello, this is a DOM portal</div>
+    <ng-template #templatePortalContent *ngIf="head==1">
+        <div class="border border-red-400  mx-auto">
+            <div class="flex grid grid-cols-4 grid-flow-row mx-auto border w-max gap-9">
+                <div *ngFor="let value of data" class="border w-72 rounded-xl" [routerLink]="['/home',value.id]">
+
+                    <div class="w-72 ">
+                        <img src={{value.image}} class="object-cover object-center h-64 rounded-xl" />
+                    </div>
+                    <p>{{value.city}}</p>
+                    <p>${{value.price}} per night</p>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

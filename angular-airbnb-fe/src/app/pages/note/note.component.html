@@ -1,0 +1,8 @@
+<button class="rounded-lg p-1 bg-rose-200" (click)="openDialog()">Create Note</button>
+
+<div class="flex gap-2" *ngFor="let note of notes">
+    <p>{{note._id}}</p>
+    <p>{{note.title}}</p>
+    <p>{{note.body}}</p>
+    <button (click)="deletedNote(note._id)">Delete</button>
+</div>

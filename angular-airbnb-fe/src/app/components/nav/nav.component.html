@@ -1,0 +1,50 @@
+<div class=" flex items-center justify-between px-2">
+    <div>
+        <!-- <ng-icon name="bootstrapApple"></ng-icon> -->
+        <img src="../../../assets/airbnb.svg" class="w-24 h-12" alt="img" />
+    </div>
+    <div class="flex justify-around gap-3">
+        <div routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" class="border p-1 rounded-lg">Stays
+        </div>
+        <div routerLink="/note" routerLinkActive="active" ariaCurrentWhenActive="page" class="border p-1 rounded-lg">
+            Notes</div>
+        <div routerLink="/second" routerLinkActive="active" ariaCurrentWhenActive="page" class="border p-1 rounded-lg">
+            Second</div>
+        <div *ngIf="authService.currentUserSig() === null" routerLink="/login" class="border p-1 rounded-lg">SignIn
+        </div>
+        <div *ngIf="authService.currentUserSig() === null" routerLink="/register" class="border p-1 rounded-lg">Register
+        </div>
+
+        <div class="bg-rose-200" *ngIf="authService.currentUserSig()">
+            {{ authService.currentUserSig()?.name }}
+            <span (click)="logout()">Logout</span>
+        </div>
+    </div>
+    <div>
+        <div class="border p-1 rounded-lg gap-1 flex ">
+            <button><ng-icon name="bootstrapApple"></ng-icon></button>
+            <button [matMenuTriggerFor]="beforeMenu"><ng-icon name="bootstrapApple"></ng-icon></button>
+        </div>
+        <mat-menu #beforeMenu="matMenu" xPosition="before" class="p-2">
+            <div *ngIf="authService.currentUserSig()" >
+            <div class="flex flex-col items-start">
+            <button >Sign Up</button>
+            <button >Login</button>
+            </div>
+            <mat-divider></mat-divider>
+            <button >Help Center</button>
+            </div>
+            <div *ngIf="authService.currentUserSig() === null" >
+            <div class="flex flex-col items-start">
+            <button> Message</button>
+            <button> Notifications</button>
+            <button> Trips</button>
+            <button> Wishlists</button>
+            <button> Logout</button>
+            </div>
+            <mat-divider></mat-divider>
+            <button >Help Center</button>
+            </div>
+        </mat-menu>
+    </div>
+</div>

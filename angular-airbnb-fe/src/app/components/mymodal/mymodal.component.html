@@ -1,0 +1,27 @@
+<div class="border-2 border-red-500">
+<h1 class="border-2 border-red-500">{{data}}</h1>
+<div class="border-2 border-red-500" mat-dialog-content>
+    <form [formGroup]="form" class="border-2 border-red-500" (keyup.enter)="onClose()">
+        <div *ngIf="data=='note'" mat-dialog-content class="border-2 border-red-500">
+            <div class="full-width" color="accent" class="border-2 border-red-500">
+                <input placeholder="title" formControlName="title" />
+            </div>
+            <div class="full-width" color="accent">
+                <input formControlName="body" placeholder="body" />
+            </div>
+        </div>
+        <div *ngIf="data=='login'" mat-dialog-content class="border-2 border-red-500">
+            <div class="full-width" color="accent" class="border-2 border-red-500">
+                <input placeholder="email" formControlName="email" />
+            </div>
+            <div class="full-width" color="accent">
+                <input formControlName="password" placeholder="Password" />
+            </div>
+            <div *ngIf="data=='note'" class="full-width" color="accent">
+                <input formControlName="password" placeholder="Password" />
+            </div>
+            <mat-checkbox color="primary">Remember Me</mat-checkbox>
+        </div>
+        <button mat-dialog-actions mat-raised-button [disabled]="!form.dirty || !form.valid" mat-dialog-close>Add note</button>
+    </form>
+</div></div>
